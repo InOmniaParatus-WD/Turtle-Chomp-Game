@@ -43,7 +43,7 @@ foods = []
 
 for count in range(maxFoods):
     new_food = turtle.Turtle()
-    new_food.color("lightgreen")
+    new_food.color("green")
     new_food.shape("circle")
     new_food.penup()
     new_food.speed(0)
@@ -92,33 +92,31 @@ turtle.onkey(turn_right, 'Right')
 turtle.onkey(increase_speed, 'Up')
 turtle.onkey(decrease_speed, 'Down')
 
-# Move the turtle
+
 while True:
     player.forward(speed)
 
-    # Boundary Player Checking x coordinate
-    if player.xcor() > 290 or player.xcor() < -290:
+    #Boundary Checking x cordinate
+    if player.xcor() > 290 or player.xcor() <-290:
         player.right(180)
-    # Move food around
+    #Boundary Checking x coordinate
+    if player.ycor() > 290 or player.ycor() <-290:
+        player.right(180)
+
+    #Move Food around
     for food in foods:
         food.forward(3)
 
-    # Boundary Player Checking y coordinate
-    if player.ycor() > 290 or player.ycor() < -290:
-        player.right(180)
-    # Move food around
-    for food in foods:
-        food.forward(3)
+        #Boundary Food Checking x coordinate
+        if food.xcor() > 290 or food.xcor() <-290:
+           food.right(180)
 
-    # Boundary Food Checking x coordinate
-        if food.xcor() > 290 or food.xcor() <- 290:
-            food.right(180)
+        #Boundary Food Checking y coordinate
+        if food.ycor() > 290 or food.ycor() <-290:
+           food.right(180)
 
-        # Boundary Food Checking y coordinate
-        if food.ycor() > 290 or food.ycor() <- 290:
-            food.right(180)
-
-       # Collision checking
+        #Collision checking
         if isCollision(player, food):
-            food.setposition(random.randint(-290, 290), random.randint(-290, 290))
-            food.right(random.randint(0, 360))
+           food.setposition(random.randint(-290, 290), random.randint(-290, 290))
+           food.right(random.randint(0,360))
+
