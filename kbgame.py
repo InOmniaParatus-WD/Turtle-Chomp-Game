@@ -3,8 +3,8 @@ import turtle
 
 # Set up screen
 turtle.setup(650,650)
-windowScreen = turtle.Screen()
-windowScreen.bgcolor('paleturquoise')
+screensize = turtle.Screen()
+screensize.bgcolor('paleturquoise')
 
 # Draw border
 mypen = turtle.Turtle()
@@ -24,6 +24,7 @@ player = turtle.Turtle()
 player.color('darkgreen')
 player.shape('turtle')
 player.penup()
+player.speed(0)
 
 # Set speed variable
 speed = 1
@@ -37,7 +38,6 @@ def turn_right():
 
 def increase_speed():
     global speed
-
     if speed < 5:
         speed += 0.5
     #     print(speed)
