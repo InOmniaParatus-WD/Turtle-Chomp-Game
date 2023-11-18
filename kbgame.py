@@ -193,3 +193,5 @@ else:
 
 
 delay = input("Press Enter to finish.")
+
+# Further study: Add function to restart the game
