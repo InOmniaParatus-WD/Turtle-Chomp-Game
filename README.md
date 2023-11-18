@@ -1,0 +1,1 @@
+A one day workshop with SheCodes in Perth WA. Getting my feet wet with Python. Really awsome day :).
