@@ -37,13 +37,28 @@ def turn_right():
 
 def increase_speed():
     global speed
-    speed += 0.5
+
+    if speed < 5:
+        speed += 0.5
+    #     print(speed)
+    # else:
+    #     print(speed)
+    #     print("Can't go any  faster!!!")
+    
+def decrease_speed(): 
+    global speed
+    if speed != 1: 
+        speed -= 0.5
+    #     print(speed)
+    # if speed == 0:
+    #     print("I can't walk anymore...")
 
 # Set keyboard binding
 turtle.listen()
 turtle.onkey(turn_left, 'Left')
 turtle.onkey(turn_right, 'Right')
 turtle.onkey(increase_speed, 'Up')
+turtle.onkey(decrease_speed, 'Down')
 
 # Move the turtle
 while True:
@@ -56,5 +71,3 @@ while True:
     # Boundary Player Checking y coordinate
     if player.ycor() > 290 or player.ycor() < -290:
         player.right(180)
-
- 
