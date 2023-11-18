@@ -6,7 +6,7 @@ import random
 # Set up screen
 turtle.setup(650,650)
 screensize = turtle.Screen()
-screensize.bgcolor('paleturquoise')
+screensize.bgcolor('darkblue')
 
 # Draw border
 mypen = turtle.Turtle()
@@ -14,7 +14,7 @@ mypen.penup()
 mypen.setposition(-300,-300)
 mypen.pendown()
 mypen.pensize(3)
-mypen.color('white')
+mypen.color('gray')
 
 for side in range(4):
     mypen.forward(600)
@@ -23,14 +23,14 @@ mypen.hideturtle()
 
 # Create player turtle
 player = turtle.Turtle()
-player.color('darkgreen')
+player.color('mediumaquamarine')
 player.shape('turtle')
 player.penup()
 player.speed(0)
 
 # Create food
 food = turtle.Turtle()
-food.color("lightgreen")
+food.color("ivory")
 food.shape("circle")
 food.penup()
 food.speed(0)
@@ -86,11 +86,17 @@ while True:
     # Boundary Player Checking x coordinate
     if player.xcor() > 290 or player.xcor() < -290:
         player.right(180)
+    # Move food around
+    food.forward(3)
 
     # Boundary Player Checking y coordinate
     if player.ycor() > 290 or player.ycor() < -290:
         player.right(180)
-    
+    # Move food around
+    food.forward(3)
+
     # Collision checking
     if isCollision(player, food):
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
+        food.right(random.randint(0, 360))
+
