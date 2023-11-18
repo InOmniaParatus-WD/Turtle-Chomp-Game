@@ -5,7 +5,7 @@ import random
 import winsound
 
 # Set up screen
-turtle.setup(650,650)
+turtle.setup(680,680)
 screen = turtle.Screen()
 screen.bgcolor('black')
 screen.bgpic('images/kbgame-bg.gif')
@@ -31,6 +31,9 @@ player.color('mediumaquamarine')
 player.shape('turtle')
 player.penup()
 player.speed(0)
+
+# Create variable score
+score = 0
 
 # Create food
 maxFoods = 10
@@ -119,3 +122,16 @@ while True:
             food.setposition(random.randint(-290, 290), random.randint(-290, 290))
             food.right(random.randint(0,360))
             winsound.PlaySound('sounds/chomp.wav', winsound.SND_ASYNC)
+
+            score += 1
+            
+            # Draw the score on the screen
+            mypen.undo()
+            mypen.penup()
+            mypen.hideturtle()
+            mypen.setposition(-290, 310)
+            scorestring ="Score: %s" % score
+            mypen.write(scorestring, False, align='left', font=('Arial', 14, 'normal'))
+
+
+
