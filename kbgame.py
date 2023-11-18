@@ -64,6 +64,14 @@ def decrease_speed():
     # if speed == 0:
     #     print("I can't walk anymore...")
 
+# Check turtle's collision with cabbage
+def isCollision(t1, t2):
+       d = math.sqrt(math.pow(t1.xcor()-t2.xcor(),2) + math.pow(t1.ycor()-t2.ycor(),2))
+       if d < 20:
+           return True
+       else:
+           return False
+
 # Set keyboard binding
 turtle.listen()
 turtle.onkey(turn_left, 'Left')
@@ -84,8 +92,5 @@ while True:
         player.right(180)
     
     # Collision checking
-    d = math.sqrt(math.pow(player.xcor() - food.xcor(), 2) + math.pow(player.ycor() - food.ycor(),2))
-    
-    if d < 20:
+    if isCollision(player, food):
         food.setposition(random.randint(-290, 290), random.randint(-290, 290))
-
