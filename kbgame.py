@@ -3,6 +3,7 @@ import turtle
 import math
 import random
 import winsound
+import time
 
 # Set up screen
 turtle.setup(680,680)
@@ -67,6 +68,9 @@ for count in range(maxFoods):
 # Set speed variable
 speed = 1
 
+# Set game time limit for 1 minute (60 seconds)
+timeout = time.time() + 10*6
+
 # Define functions
 def turn_left():
     player.left(30)
@@ -107,6 +111,11 @@ turtle.onkey(increase_speed, 'Up')
 turtle.onkey(decrease_speed, 'Down')
 
 while True:
+    gametime = 0
+    if gametime == 6 or time.time() > timeout:
+        break
+    gametime = gametime - 1
+
     player.forward(speed)
     comp.forward(12)
     # Boundary Comp Checking x coordinate
@@ -172,6 +181,15 @@ while True:
             scorestring ="Score: %s" % comp_score
             mypen2.write(scorestring, False, align='left', font=('Arial', 14, 'normal'))
 
+# Comparing players' scores
+if (int(score) > int(comp_score)):
+    mypen.setposition(0, 0)
+    mypen.color("yellow")
+    mypen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
+else:
+    mypen.setposition(0, 0)
+    mypen.color("yellow")
+    mypen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
 
 
-
+delay = input("Press Enter to finish.")
