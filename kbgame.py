@@ -80,20 +80,13 @@ def turn_right():
 
 def increase_speed():
     global speed
-    if speed < 5:
+    if speed < 8:
         speed += 0.5
-    #     print(speed)
-    # else:
-    #     print(speed)
-    #     print("Can't go any  faster!!!")
     
 def decrease_speed(): 
     global speed
     if speed != 1: 
         speed -= 0.5
-    #     print(speed)
-    # if speed == 0:
-    #     print("I can't walk anymore...")
 
 # Check turtle's collision with cabbage
 def isCollision(t1, t2):
@@ -167,12 +160,12 @@ while True:
             scorestring ="Score: %s" % score
             mypen.write(scorestring, False, align='left', font=('Arial', 14, 'normal'))
 
-                # Comp Collision checking
+            # Comp Collision checking
         if isCollision(comp, food):
             food.setposition(random.randint(-290, 290), random.randint(-290, 290))
             food.right(random.randint(0,360))
             winsound.PlaySound('sounds/chomp.wav', winsound.SND_ASYNC)
-            comp_score+=1
+            comp_score += 1
             # Draw the Comp score on the screen
             mypen2.undo()
             mypen2.penup()
@@ -190,7 +183,6 @@ else:
     mypen.setposition(0, 0)
     mypen.color("yellow")
     mypen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
-
 
 delay = input("Press Enter to finish.")
 
