@@ -114,12 +114,10 @@ while True:
     # Boundary Comp Checking x coordinate
     if comp.xcor() > 290 or comp.xcor() < -290:
         comp.right(180)
-        winsound.PlaySound('sounds/bounce.wav', winsound.SND_ASYNC)
 
     # Boundary Comp Checking y coordinate
     if comp.ycor() > 290 or comp.ycor() < -290:
         comp.right(180)
-        winsound.PlaySound('sounds/bounce.wav', winsound.SND_ASYNC) 
 
     #Boundary Checking x cordinate
     if player.xcor() > 290 or player.xcor() <-290:
